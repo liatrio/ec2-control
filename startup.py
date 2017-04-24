@@ -1,7 +1,7 @@
 import boto3
 from functools import reduce
 
-client = boto3.client('ec2', region_name='us-west-2',aws_access_key_id=AWS_ACCESS_KEY_ID,aws_secret_access_key=AWS_SECRET_ACCESS_KEY_ID)
+client = boto3.client('ec2', region_name='us-west-2',aws_access_key_id=AWS_ACCESS_KEY_ID,aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
 response = client.describe_instances()
 instances = reduce(lambda a,b:a+b['Instances'], response['Reservations'], [])
